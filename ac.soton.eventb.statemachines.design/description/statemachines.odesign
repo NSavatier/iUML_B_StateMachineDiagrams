@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/description/tool/1.1.0" name="statemachines" version="12.0.0.2017041100">
+  <ownedViewpoints name="StateMachineDiagram ViewPoint">
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="StateMachineDiagram" domainClass="statemachines::Statemachine" enablePopupBars="true">
+      <metamodel href="http://soton.ac.uk/models/eventb/statemachines/2014#/"/>
+      <metamodel href="http://emf.eventb.org/models/core/2014#/"/>
+      <metamodel href="http://soton.ac.uk/models/eventb/coreextension/2014#/"/>
+      <metamodel href="http://soton.ac.uk/models/eventb/diagrams#/"/>
+      <layout xsi:type="description_1:CompositeLayout"/>
+      <defaultLayer name="Default">
+        <nodeMappings name="InitialNode" semanticCandidatesExpression="feature:nodes" domainClass="statemachines::Initial">
+          <style xsi:type="style:DotDescription" showIcon="false" resizeKind="NSEW">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+          </style>
+        </nodeMappings>
+        <nodeMappings name="FinalNode" semanticCandidatesExpression="feature:nodes" domainClass="statemachines::Final">
+          <style xsi:type="style:DotDescription" showIcon="false" resizeKind="NSEW">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='red']"/>
+          </style>
+        </nodeMappings>
+        <nodeMappings name="ForkNode" semanticCandidatesExpression="feature:nodes" domainClass="statemachines::Fork">
+          <style xsi:type="style:SquareDescription" showIcon="false" labelExpression="[''/]" sizeComputationExpression="0" labelPosition="node" resizeKind="NSEW" width="1" height="3">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+          </style>
+        </nodeMappings>
+        <nodeMappings name="JoinNode" semanticCandidatesExpression="feature:nodes" domainClass="statemachines::Junction">
+          <style xsi:type="style:SquareDescription" showIcon="false" labelExpression="[''/]" sizeComputationExpression="0" labelPosition="node" resizeKind="NSEW" width="1" height="3">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+          </style>
+        </nodeMappings>
+        <edgeMappings name="TransitionEdge" sourceMapping="//@ownedViewpoints[name='StateMachineDiagram%20ViewPoint']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@nodeMappings[name='InitialNode'] //@ownedViewpoints[name='StateMachineDiagram%20ViewPoint']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@nodeMappings[name='ForkNode'] //@ownedViewpoints[name='StateMachineDiagram%20ViewPoint']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@nodeMappings[name='JoinNode'] //@ownedViewpoints[name='StateMachineDiagram%20ViewPoint']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='StateNode']" targetMapping="//@ownedViewpoints[name='StateMachineDiagram%20ViewPoint']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@nodeMappings[name='FinalNode'] //@ownedViewpoints[name='StateMachineDiagram%20ViewPoint']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@nodeMappings[name='ForkNode'] //@ownedViewpoints[name='StateMachineDiagram%20ViewPoint']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@nodeMappings[name='JoinNode'] //@ownedViewpoints[name='StateMachineDiagram%20ViewPoint']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='StateNode']" targetFinderExpression="aql:self.target" sourceFinderExpression="aql:self.source" domainClass="statemachines::Transition" useDomainElement="true">
+          <style sizeComputationExpression="2" endsCentering="Both">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <centerLabelStyleDescription labelExpression="aql:self.elaborates.name">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <containerMappings name="StateNode" semanticCandidatesExpression="feature:nodes" domainClass="statemachines::State" childrenPresentation="VerticalStack">
+          <subContainerMappings name="SubStateMachineContainer" semanticCandidatesExpression="var:self" domainClass="statemachines::State" childrenPresentation="VerticalStack">
+            <subContainerMappings name="SubMachineContainer" semanticCandidatesExpression="aql:self.statemachines" domainClass="statemachines::Statemachine" reusedNodeMappings="//@ownedViewpoints[name='StateMachineDiagram%20ViewPoint']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@nodeMappings[name='FinalNode'] //@ownedViewpoints[name='StateMachineDiagram%20ViewPoint']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@nodeMappings[name='InitialNode'] //@ownedViewpoints[name='StateMachineDiagram%20ViewPoint']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@nodeMappings[name='ForkNode'] //@ownedViewpoints[name='StateMachineDiagram%20ViewPoint']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@nodeMappings[name='JoinNode']" reusedContainerMappings="//@ownedViewpoints[name='StateMachineDiagram%20ViewPoint']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='StateNode'] //@ownedViewpoints[name='StateMachineDiagram%20ViewPoint']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='StateNode']/@subContainerMappings[name='SubStateMachineContainer'] //@ownedViewpoints[name='StateMachineDiagram%20ViewPoint']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='StateNode']/@subContainerMappings[name='SubStateMachineContainer']/@subContainerMappings[name='SubMachineContainer'] //@ownedViewpoints[name='StateMachineDiagram%20ViewPoint']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='StateNode']/@subContainerMappings[name='InvariantsContainer']">
+              <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" hideLabelByDefault="true" backgroundColor="//@userColorsPalettes[name='CustomColors']/@entries[name='SubMachine_Blue']" foregroundColor="//@userColorsPalettes[name='CustomColors']/@entries[name='SubMachine_Blue']">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </style>
+            </subContainerMappings>
+            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" hideLabelByDefault="true" widthComputationExpression="30" backgroundColor="//@userColorsPalettes[name='CustomColors']/@entries[name='SubMachine_Blue']" foregroundColor="//@userColorsPalettes[name='CustomColors']/@entries[name='SubMachine_Blue']">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </style>
+          </subContainerMappings>
+          <subContainerMappings name="InvariantsContainer" semanticCandidatesExpression="var:self" domainClass="statemachines::State" childrenPresentation="List">
+            <subNodeMappings name="InvariantNode" semanticCandidatesExpression="feature:invariants" domainClass="machine::Invariant">
+              <style xsi:type="style:SquareDescription" labelExpression="aql:self.predicate" labelPosition="node" resizeKind="NSEW">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_blue']"/>
+              </style>
+            </subNodeMappings>
+            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" hideLabelByDefault="true">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_blue']"/>
+              <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_blue']"/>
+            </style>
+          </subContainerMappings>
+          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" widthComputationExpression="30">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_blue']"/>
+            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_blue']"/>
+          </style>
+        </containerMappings>
+        <toolSections name="States">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="InitialCreation" label="Initial" nodeMappings="//@ownedViewpoints[name='StateMachineDiagram%20ViewPoint']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@nodeMappings[name='InitialNode']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="statemachines::Initial" referenceName="nodes"/>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="FinalCreation" label="Final" nodeMappings="//@ownedViewpoints[name='StateMachineDiagram%20ViewPoint']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@nodeMappings[name='FinalNode']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="statemachines::Final" referenceName="nodes"/>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="StateCreation" label="State" containerMappings="//@ownedViewpoints[name='StateMachineDiagram%20ViewPoint']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@containerMappings[name='StateNode']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="statemachines::State" referenceName="nodes"/>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
+        <toolSections name="Features"/>
+        <toolSections name="Connections">
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="TransitionCreation" label="Transition" edgeMappings="//@ownedViewpoints[name='StateMachineDiagram%20ViewPoint']/@ownedRepresentations[name='StateMachineDiagram']/@defaultLayer/@edgeMappings[name='TransitionEdge']">
+            <sourceVariable name="source"/>
+            <targetVariable name="target"/>
+            <sourceViewVariable name="sourceView"/>
+            <targetViewVariable name="targetView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:source.eContainer().oclAsType(statemachines::Statemachine)">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="statemachines::Transition" referenceName="transitions">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="target" valueExpression="var:target"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="targetContainer" valueExpression="var:target"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="source" valueExpression="var:source"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="sourceContainer" valueExpression="var:source"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
+      </defaultLayer>
+    </ownedRepresentations>
+    <ownedJavaExtensions qualifiedClassName="ac.soton.eventb.statemachines.design.Services"/>
+  </ownedViewpoints>
+  <userColorsPalettes name="CustomColors">
+    <entries xsi:type="description:UserFixedColor" red="242" green="249" blue="255" name="SubMachine_Blue"/>
+  </userColorsPalettes>
+</description:Group>
